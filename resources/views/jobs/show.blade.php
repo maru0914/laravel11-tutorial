@@ -9,7 +9,9 @@
         この求人は年収{{ $job->salary }}です。
     </p>
 
-    <p class="mt-6">
-        <x-button href="/jobs/{{ $job->id }}/edit">求人編集</x-button>
-    </p>
+    @can('edit', $job)
+        <p class="mt-6">
+            <x-button href="/jobs/{{ $job->id }}/edit">求人編集</x-button>
+        </p>
+    @endcan
 </x-layout>
